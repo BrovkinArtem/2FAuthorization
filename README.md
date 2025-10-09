@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# 2FAuthorization
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## О проекте
 
-Currently, two official plugins are available:
+**2FAuthorization** — небольшое приложение для авторизации с поддержкой двухфакторной аутентификации (2FA).  
+Проект реализован в рамках тестового задания и демонстрирует базовые подходы к работе с формами, валидацией и обработкой ошибок при взаимодействии с API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Стек технологий
 
-## React Compiler
+- **React** — для построения пользовательского интерфейса.
+- **TypeScript** — для типизации и большей надежности кода.
+- **React Query** — для управления асинхронными запросами и мокирования API.
+- **Zod + React Hook Form** — для валидации и работы с формами.
+- **Tailwind CSS** — для быстрого и удобного стилизования компонентов.
+- **Jest** — для unit-тестирования функций и моков.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Основные функции
 
-## Expanding the ESLint configuration
+- **Авторизация с валидацией**  
+  Проверка email и пароля по базовым требованиям.
+- **Двухфакторная аутентификация**  
+  Имитация проверки состояния 2FA.
+- **Моки API**  
+  Реализация моков для функций API с обработкой типовых ошибок (network, storage, expired, invalid data, not found).
+- **Локальное хранилище**  
+  Использование localStorage для хранения состояния пользователя и авторизации.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Возможные доработки
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Интеграция с реальным backend.
+- Улучшение тестов и покрытие edge-case сценариев.
+- Добавление e2e тестирования.
+- Расширение UI и поддержка дополнительных способов входа.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Почему не реализовано сейчас?
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Основная задача — показать базовые навыки работы с формами, типами и обработкой ошибок.
+- Моки и тесты реализованы на базовом уровне, без сложных сценариев.
+- В приоритете была простота и читаемость кода.
+
+## Запуск проекта
+
+```bash
+npm install
+npm start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Тесты
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm test
 ```
+
+---
+
+**2FAuthorization** — пример простого решения для тестового задания с акцентом на базовую архитектуру и обработку
